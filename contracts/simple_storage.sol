@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 contract SimpleStorage 
 {
@@ -31,13 +31,21 @@ contract SimpleStorage
         return favorite_number;
     }
     
+    // "memory" specify that, it exists when the function is called
     function add_person(uint256 _favorite_number, string memory _name) public
     {
-        people.push(People(_favorite_number, _name));
+        People memory person = People(_favorite_number, _name);
+        people.push(person);
         // name_to_favorite_number[_name] = _favorite_number;
     }
 
-    function retrieve_persons() public view returns(People[] memory)
+    function retrieve_person(uint index) public view returns(People memory)
+    {
+        People memory person = people[index];
+        return person;
+    }
+
+    function all_persons() public view returns(People[] memory)
     {
         return people;
     }
