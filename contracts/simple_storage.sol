@@ -31,7 +31,7 @@ contract SimpleStorage
         return favorite_number;
     }
     
-    // "memory" specify that, it exists when the function is called
+    // "memory" specify that, where it exists when the function is called
     function add_person(uint256 _favorite_number, string memory _name) public
     {
         People memory person = People(_favorite_number, _name);
