@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.6.4+commit.1dca32f3"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -21,6 +21,31 @@
 				"name": "add_person",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "get_all_persons",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "favorite_number",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "favorite_name",
+								"type": "string"
+							}
+						],
+						"internalType": "struct SimpleStorage.People[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -80,13 +105,31 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "retrieve_persons",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "retrieve_person",
 				"outputs": [
 					{
-						"internalType": "string",
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "favorite_number",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "favorite_name",
+								"type": "string"
+							}
+						],
+						"internalType": "struct SimpleStorage.People",
 						"name": "",
-						"type": "string"
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -107,17 +150,21 @@
 			}
 		],
 		"devdoc": {
-			"methods": {}
+			"kind": "dev",
+			"methods": {},
+			"version": 1
 		},
 		"userdoc": {
-			"methods": {}
+			"kind": "user",
+			"methods": {},
+			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
 			"contracts/simple_storage.sol": "SimpleStorage"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -130,10 +177,11 @@
 	},
 	"sources": {
 		"contracts/simple_storage.sol": {
-			"keccak256": "0x460bbb07379dad9f7f0fdf7dfa8464cf69b53d96e81b887276717c6ae6efcaca",
+			"keccak256": "0x817320c3f4d375ad138ae58d39d73c6fbca481d193c5545bb61cdbdbc021d741",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5e4142a8f595d69ef2af385360a4fa7675e4062ed3196eb5bda9472e7d693c07",
-				"dweb:/ipfs/Qmaw5Qej49mTEuGjQZn7f8beP77ZAewj3hTBcSo9AjQuhy"
+				"bzz-raw://a0d7adfcfd1610511aeb4109864fb8260a2d3a8d2ddb56ad0ee85f24866722da",
+				"dweb:/ipfs/QmQUx4L8ijHPWwgB86zPyZSTGdcC2Xb6kJ4da4cEoXT7po"
 			]
 		}
 	},

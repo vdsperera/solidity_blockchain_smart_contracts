@@ -32,20 +32,22 @@ contract SimpleStorage
     }
     
     // "memory" specify that, where it exists when the function is called
+    // when we store data in 'memory' then they only stored during the execution
+    // if we store data in 'storage' then they can be access even after the execution 
     function add_person(uint256 _favorite_number, string memory _name) public
     {
         People memory person = People(_favorite_number, _name);
         people.push(person);
-        // name_to_favorite_number[_name] = _favorite_number;
+        name_to_favorite_number[_favorite_number] = _name;
     }
 
-    function retrieve_person(uint index) public view returns(People memory)
+    function retrieve_person(uint256 _index) public view returns(People memory)
     {
-        People memory person = people[index];
+        People memory person = people[_index];
         return person;
     }
 
-    function all_persons() public view returns(People[] memory)
+    function get_all_persons() public view returns(People[] memory)
     {
         return people;
     }
